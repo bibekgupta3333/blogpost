@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} SignUp {% endblock %}
+{% block content %}
+    {% include 'partials/alert.html' %}
+<div class="row bg-light">
+  <div class="container">
+    <div
+      class="col-md-6 mt-3 mx-auto justify-content-center align-items-center"
+    >
+      <div class="shadow py-3 px-5 mb-4 text-dark bg-white rounded">
+        <h1 class="mb-0 text-center">SIGN UP</h1>
+        <p class="text-center">Create your account:</p>
+
+        <form class="form" method="post">
+          {% csrf_token %}
+            {% for field in user_form %}
+          <div class="fieldWrapper form-group mb-2">
+            {{ field.errors }} {{ field.label_tag }} {{ field }}
+          </div>
+          {% endfor %}
+          <p>
+            <input
+              class="btn btn-secondary btn-lg px-5"
+              type="submit"
+              value="Sign Up"
+            />
+          </p>
+        </form>
+        <p>
+          <a class="text-muted" href="{% url 'accounts:login'%}"
+            >Already Account? Just LogIn</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark px-5 border-bottom border-warning"
+>
+  <div class="container">
+    <a class="h1 navbar-brand" href="{% url 'blogposts:list' %}"
+      ><span class="text-warning font-weight-bold h2">BLOG</span>
+      <span class="font-weight-bold h2">POSTS</span></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blogposts:list' %}">Home </a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="{% url 'blogposts:user_post_list' author=request.user.username author_id=request.user.id %}"
+            >Your Posts
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blogposts:create' %}"
+            >Create Posts
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+          >
+            <img
+              width="40px"
+              height="40px"
+              class="rounded-circle"
+              src="{% if  request.user.profile.photo %}/media/{{request.user.profile.photo}} {% else %} /static/img/anonymous.png {% endif %}"
+              alt=""
+            />
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'accounts:edit' %}"
+              >Edit Profile</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'accounts:logout' %}"
+              >Logout</a
+            >
+          </div>
+        </li>
+        {% else %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:login' %}">Login </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:signup' %}">Signup </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,58 @@
+<div
+  class="jumbotron jumbotron-fluid text-danger border-bottom border-warning"
+  style="
+    background: url('https://images.pexels.com/photos/3740740/pexels-photo-3740740.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+      no-repeat center center/cover;
+    background-attachment: fixed;
+
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+  "
+  height="90vh"
+>
+  <div
+    class="container d-flex flex-column justify-content-center align-items-center"
+  >
+    <p
+      style="text-shadow: 5px 5px 5px #444;"
+      class="h1 text-warning font-weight-bold"
+    >
+      Read Your Favourite <span class="text-light"> Blog Posts</span>
+    </p>
+    <p
+      style="text-shadow: 5px 5px 5px #555;"
+      class="lead text-warning font-weight-bold"
+    >
+      In today's world internet is the most popular way of reading blogs ...
+    </p>
+
+    <div class="text-center">
+      <form class="form-inline my-2 my-lg-0">
+        <div class="form-group">
+          <input
+            class="form-control mr-sm-2 mb-3 py-4 px-5"
+            name="q"
+            type="search"
+            placeholder="Search"
+          />
+        </div>
+      </form>
+    </div>
+
+    {% if status %}
+    <br />
+    {% if request.user == status %}
+    <div class="text-center">
+      <a href="?q=published" class="btn btn-warning text-dark font-weight-bold"
+        >Published Posts</a
+      >
+      <a href="?q=draft" class="btn btn-dark text-warning font-weight-bold"
+        >UnPublished Posts</a
+      >
+    </div>
+    {% endif %} <br />
+    {% endif %}
+  </div>
+</div>

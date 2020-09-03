@@ -1,0 +1,31 @@
+{% load static %}
+<div class="card bg-dark text-white">
+  <img
+    height="300px"
+    src="{% static 'img/showcase-3.jpg' %}"
+    class="card-img border-none"
+    alt="showcase"
+  />
+  <div
+    class="card-img-overlay d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1 class="card-title display-1">BLOG ZONE</h1>
+    <p class="card-text lead">
+      This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.
+    </p>
+    <form method="get">
+      <div width="400px" class="input-group">
+        <input
+          class="form-control rounded mr-3"
+          placeholder="Search post"
+          type="text"
+          name="q"
+        />
+        <button type="submit" class="btn btn-light">
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

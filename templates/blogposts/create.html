@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+Create Post
+
+{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="container">
+    <div
+      class="col-md mt-5 mx-auto justify-content-center align-items-center"
+    >
+      <div class="m-5 shadow p-5 text-dark">
+        <h1>Create a Post</h1>
+        <p>Please, use the following form to log-in:</p>
+
+        <form class="form" method="POST" enctype="multipart/form-data">
+          {% csrf_token %} {{form.media}} {{form.as_p}}
+  
+          <input class="btn btn-secondary px-5" type="submit" value="Create" />
+        </form>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

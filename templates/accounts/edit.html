@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+ {% include 'partials/alert.html' %}{% block title %} Edit Profile {% endblock %}
+{% block content %}
+     {% include 'partials/alert.html' %}
+<div class="row bg-light">
+  <div class="container">
+    <div
+      class="col-md-8 mt-3 mb-3 mx-auto justify-content-center align-items-center"
+    >
+      <div class="shadow py-3 px-5 text-dark bg-white rounded">
+        <h1 class="mb-0 text-center">Edit your account</h1>
+        <p class="text-center">
+          You can edit your account using the following form:
+        </p>
+
+        <form class="form" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            {{user_form.as_p}}
+            {{profile_form.as_p}}
+          <input
+            class="btn btn-secondary btn-lg px-5"
+            type="submit"
+            value="Save Changes"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
